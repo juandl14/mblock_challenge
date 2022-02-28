@@ -148,6 +148,17 @@ app.put("/api/posts/:postID", async(req, res) => {
             var childrenCount = 1;
 
             for (let i = 0; i < likeChildren.rows.length; i++) {
+                const newChildLike = await pool.query(
+                    "SELECT * FROM likedBy WHERE userID = $1 AND postID = $2",
+                    [likeChildren.rows[i].userid, postID]
+                );
+    
+                if (newChildLike.rows[0]) {
+                    // bad request
+                    res.status(400).send(`Post with ID ${postID} is already liked by User with ID ${likeChildren.rows[i].userid, postID}`);
+                    return;
+                }
+
                 await pool.query(
                     "INSERT INTO likedBy VALUES ($1, $2) RETURNING *",
                     [likeChildren.rows[i].userid, postID]
