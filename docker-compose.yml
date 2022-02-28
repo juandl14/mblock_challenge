@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  node:
+    container_name: "nodejs_mblock_challenge"
+    build: .
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    depends_on:
+      - postgresqls
+    ports:
+      - "3000:3000"
+    networks:
+      - default  
+    command: "npm start"
+
+  postgresqls:
+    container_name: "postgresql_mblock_challenge"
+    image: "postgres"
+    ports: 
+      - "5433:5432"
+    volumes:
+       - db_persdata:/var/lib/postgrespers
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: H?8v#2&b9CvyEcn
+      POSTGRES_DB: mblock_api_db
+    networks:
+      - default
+networks:
+  default:
+volumes:
+  db_persdata : {}
