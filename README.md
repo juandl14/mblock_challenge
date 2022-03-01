@@ -1,5 +1,7 @@
 # Mighty Block Challenge by Juan De Luca
 
+For any questions or doubts, you can contact juan.deluca.contact@gmail.com
+
 ## Index
 
 In this readme you will find the following items:
