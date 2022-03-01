@@ -14,7 +14,7 @@ The task to this challenge can be found [here](./task/task.pdf) or in the file c
 
 ## 2. Database
 
-The chosen database was PostgreSQL but without the use of the _sequelize_ tool. PostgreSQL was chosen before a more widely used DB like Mongo because the knowledge of the author about PostgreSQL was greater than that about Mongo, and the decision to not use the _sequelize_ tool was merely out of simplicity, given that the complexity of this database didn't make its usage necesary.
+The chosen database was PostgreSQL but without the use of the _sequelize_ tool. This decision. was merely out of simplicity, given that the complexity of this database didn't make its usage necesary.
 The Database Schema used was the following:
 ![DB Schema](./db/db_schema.jpg)
 There are 2 data tables (Posts and Users) and one relation table (Liked By).
